@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Timeless Art & Artifacts</title>
+
+<!--  <link rel="alternate" href="public/background.svg" type="image/svg+xml" />-->
+    <link rel="stylesheet" href="public/style.css">
+</head>
+<body class="body">
+
+<header>
+<h1> Timeless Art & Artifacts</h1>
+    <p>
+        Discover handpicked masterpieces and rare cultural treasures from around the world.
+    </p>
+</header>
+<main >
+    <section>
+        <div>
+            <p>
+                Welcome to Golden Relics — where history meets craftsmanship. <br>Explore our curated collection of exquisite
+                golden artifacts <br>inspired by ancient civilizations. Each piece tells a story of power,<br>
+                beauty, and timeless artistry,<br> crafted to bring a touch of royal elegance to your home or collection.
+            </p>
+            <img src="src/img/hy.webp" height="348" width="474"/>
+
+        <span>
+            <form  action="/submit-form" method="POST"><em>
+  <!-- Item name -->
+            <label for="item"> Purchase:</label>
+             <input type="text" id="item" name="item" placeholder="Golden Artifact">
+            <br>
+                <!-- Price -->
+            <label for="price">Price ($):</label>
+             <input type="number" id="price" name="price" placeholder="1000" step="0.01" min="0">
+        <br>
+                <!-- Sale or bid option -->
+         <label for="saleType">Sale Type:</label>
+         <select id="saleType" name="saleType">
+        <option value="sale">Direct Sale</option><option value="bid">Auction / Bid</option>
+            </select>
+        <br>
+                <!-- Comment for bid -->
+        <label for="comment">Bid Comment:</label>
+         <textarea id="comment" name="comment" placeholder="Place your bid or comment here..."></textarea>
+
+                <!-- Submit button -->
+        <input type="submit" value="Submit">
+       </em></form>
+
+        </span>
+        </div>
+    </section>
+    <section2>
+        <script >
+            document.querySelector("form").addEventListener("submit", function (e) {
+                e.preventDefault(); // stops actual submission
+                const formData = {
+                    item: document.getElementById("item").value,
+                    price: document.getElementById("price").value,
+                    saleType: document.getElementById("saleType").value,
+                    comment: document.getElementById("comment").value
+                };
+
+                // Save data to localStorage
+                localStorage.setItem("purchaseData", JSON.stringify(formData));
+
+                alert("Your data has been saved locally!");
+            });
+        </script>
+    </section2>
+</main>
+
+<footer class="technologies">
+ <img src="/technologies.svg" alt="List of supported technologies">
+</footer>
+<script type="module" src="/src/main.ts"></script>
+</body>
+</html>
